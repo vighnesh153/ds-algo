@@ -1,41 +1,40 @@
 def solve(n):
-    matrix = [[-1 for _ in range(n)] for __ in range(n)]
+    result = [[0 for _ in range(n)] for __ in range(n)]
 
-    curr = 1
-    last = n * n
-    iteration = -1
-    while curr <= last:
-        iteration += 1
+    counter = 1
+    iteration = 0
+    while counter <= n * n:
         i = j = iteration
         while j < n - iteration:
-            matrix[i][j] = curr
-            curr += 1
+            result[i][j] = counter
+            counter += 1
             j += 1
 
         j -= 1
         i += 1
         while i < n - iteration:
-            matrix[i][j] = curr
-            curr += 1
+            result[i][j] = counter
+            counter += 1
             i += 1
 
         i -= 1
         j -= 1
         while j >= iteration:
-            matrix[i][j] = curr
-            curr += 1
+            result[i][j] = counter
+            counter += 1
             j -= 1
 
         j += 1
         i -= 1
-        while i >= iteration + 1:
-            matrix[i][j] = curr
-            curr += 1
+        while i > iteration:
+            result[i][j] = counter
+            counter += 1
             i -= 1
 
-    return matrix
+        iteration += 1
+
+    return result
 
 
-res = solve(6)
-for row in res:
+for row in solve(10):
     print(row)
