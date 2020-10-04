@@ -5,3 +5,7 @@ Attempts of some ds-algo problems
 ```
     npx gen-tem py file.py
 ```
+
+
+* is power of n
+* modular arithmetic functions
